@@ -1,14 +1,14 @@
-let clock = document.getElementById("clock");
+let clock = document.getElementById("clock"); // Получение элементов из DOM
 let color = document.getElementById("color");
 
 
-function HexoClock() {
-    let time = new Date();
-    let h = (time.getHours() % 12).toString();
+function HexoClock() { // Функция изменения времени и цвета фона
+    let time = new Date();// Вызов Date
+    let h = (time.getHours() % 12).toString(); // Вызов текущего времени и преобразование в строку
     let m = time.getMinutes().toString();
     let s = time.getSeconds().toString();
 
-    if (h.length < 2) {
+    if (h.length < 2) { // Проверка
         h = '0' + h;
     }
     if (m.length < 2) {
@@ -21,11 +21,11 @@ function HexoClock() {
     let clockString = h + ':' + m + ':' + s;
     let colorString = '#' + h + m + s;
 
-    clock.textContent = clockString;
+    clock.textContent = clockString; // Вставка в DOM
     color.textContent = colorString;
 
-    document.body.style.background = colorString;
+    document.body.style.background = colorString; // Изменение фона
 }
 
-HexoClock();
-setInterval(HexoClock, 1000);
+HexoClock(); //Первый вызов функции
+setInterval(HexoClock, 1000); //Интервал
